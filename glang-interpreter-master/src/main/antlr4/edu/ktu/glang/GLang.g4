@@ -40,6 +40,31 @@ forControl : forInit ';' expression ';' forUpdate
 forInit : localVariableDeclaration
         | expressionList;
 
+localVariableDeclaration : variableModifier* type variableDeclarator (',' variableDeclarator)* ';';
+
+variableModifier : 'final';
+
+type : primitiveType | classOrInterfaceType | arrayType;
+
+primitiveType : 'byte' | 'short' | 'int' | 'long' | 'float' | 'double' | 'char' | 'boolean';
+
+classOrInterfaceType : Identifier ('.' Identifier)* typeArguments?;
+
+arrayType : primitiveType squareBrackets+ | classOrInterfaceType squareBrackets+;
+
+squareBrackets : '[' ']';
+
+variableDeclarator : Identifier ('[' expression ']')? ('=' variableInitializer)?;
+
+variableInitializer : arrayInitializer | expression;
+
+arrayInitializer : '{' (variableInitializer (',' variableInitializer)*)? ','? '}';
+
+typeArguments : '<' typeList '>';
+
+typeList : type (',' type)*;
+
+
 forUpdate : expressionList;
 
 expressionList : expression (',' expression)*;
