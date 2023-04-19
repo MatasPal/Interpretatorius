@@ -193,6 +193,16 @@ public interface GLangListener extends ParseTreeListener {
 	 */
 	void exitIfStatement(GLangParser.IfStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link GLangParser#forLoop}.
+	 * @param ctx the parse tree
+	 */
+	void enterForLoop(GLangParser.ForLoopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GLangParser#forLoop}.
+	 * @param ctx the parse tree
+	 */
+	void exitForLoop(GLangParser.ForLoopContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link GLangParser#relationOp}.
 	 * @param ctx the parse tree
 	 */
