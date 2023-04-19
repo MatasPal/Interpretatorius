@@ -11,7 +11,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="glang-interpreter" target="18" />
+
+      <module name="glang-interpreter" target="19" />
+      <module name="glang-interpreter (1)" target="18" />
+
       <module name="glang-interpreter-master" target="19" />
     </bytecodeTargetLevel>
   </component>

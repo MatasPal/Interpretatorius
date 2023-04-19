@@ -1,4 +1,4 @@
-package gen;// Generated from C:/Users/Erikas/Documents/GitHub/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -55,12 +55,26 @@ public interface GLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDoubleExpression(GLangParser.DoubleExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code doubleMultiOpExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDoubleMultiOpExpression(GLangParser.DoubleMultiOpExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code intExpression}
 	 * labeled alternative in {@link GLangParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitIntExpression(GLangParser.IntExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code doubleAddOpExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDoubleAddOpExpression(GLangParser.DoubleAddOpExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code intAddOpExpression}
 	 * labeled alternative in {@link GLangParser#expression}.
@@ -95,17 +109,19 @@ public interface GLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIntAddOp(GLangParser.IntAddOpContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link GLangParser#whileLoop}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitWhileLoop(GLangParser.WhileLoopContext ctx);
+
 	/**
 	 * Visit a parse tree produced by {@link GLangParser#ifStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitIfStatement(GLangParser.IfStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GLangParser#forLoop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForLoop(GLangParser.ForLoopContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link GLangParser#relationOp}.
 	 * @param ctx the parse tree

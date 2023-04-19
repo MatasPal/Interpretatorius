@@ -1,4 +1,6 @@
-// Generated from C:/Users/Erikas/Documents/GitHub/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+
+// Generated from C:/Users/Vartotojas/interpretatorius/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -83,6 +85,18 @@ public interface GLangListener extends ParseTreeListener {
 	 */
 	void exitDoubleExpression(GLangParser.DoubleExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code doubleMultiOpExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterDoubleMultiOpExpression(GLangParser.DoubleMultiOpExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code doubleMultiOpExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitDoubleMultiOpExpression(GLangParser.DoubleMultiOpExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code intExpression}
 	 * labeled alternative in {@link GLangParser#expression}.
 	 * @param ctx the parse tree
@@ -94,6 +108,18 @@ public interface GLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIntExpression(GLangParser.IntExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code doubleAddOpExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterDoubleAddOpExpression(GLangParser.DoubleAddOpExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code doubleAddOpExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitDoubleAddOpExpression(GLangParser.DoubleAddOpExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code intAddOpExpression}
 	 * labeled alternative in {@link GLangParser#expression}.
@@ -151,15 +177,27 @@ public interface GLangListener extends ParseTreeListener {
 	 */
 	void exitIntAddOp(GLangParser.IntAddOpContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GLangParser#whileLoop}.
+
+	 * Enter a parse tree produced by {@link GLangParser#doubleMultiOp}.
 	 * @param ctx the parse tree
 	 */
-	void enterWhileLoop(GLangParser.WhileLoopContext ctx);
+	void enterDoubleMultiOp(GLangParser.DoubleMultiOpContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GLangParser#whileLoop}.
+	 * Exit a parse tree produced by {@link GLangParser#doubleMultiOp}.
 	 * @param ctx the parse tree
 	 */
-	void exitWhileLoop(GLangParser.WhileLoopContext ctx);
+	void exitDoubleMultiOp(GLangParser.DoubleMultiOpContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GLangParser#doubleAddOp}.
+	 * @param ctx the parse tree
+	 */
+	void enterDoubleAddOp(GLangParser.DoubleAddOpContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GLangParser#doubleAddOp}.
+	 * @param ctx the parse tree
+	 */
+	void exitDoubleAddOp(GLangParser.DoubleAddOpContext ctx);
+
 	/**
 	 * Enter a parse tree produced by {@link GLangParser#ifStatement}.
 	 * @param ctx the parse tree
@@ -170,6 +208,16 @@ public interface GLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIfStatement(GLangParser.IfStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GLangParser#forLoop}.
+	 * @param ctx the parse tree
+	 */
+	void enterForLoop(GLangParser.ForLoopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GLangParser#forLoop}.
+	 * @param ctx the parse tree
+	 */
+	void exitForLoop(GLangParser.ForLoopContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GLangParser#relationOp}.
 	 * @param ctx the parse tree
