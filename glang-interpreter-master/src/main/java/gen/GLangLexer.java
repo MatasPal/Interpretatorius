@@ -1,4 +1,4 @@
-package gen;// Generated from C:/Studijos/2 kursas/2 semestras/Programavimo kalbu teorija/Grupes projektas/glang-interpreter-master/2/glang-interpreter-master/glang-interpreter-master/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+package gen;// Generated from C:/Users/Vartotojas/interpretatorius/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -40,9 +40,11 @@ public class GLangLexer extends Lexer {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
+
 			null, "';'", "'='", "'++'", "'('", "')'", "'*'", "'/'", "'%'", "'+'", 
 			"'-'", "'if'", "'{'", "'}'", "'else'", "'for'", "'=='", "'!='", "'<'", 
 			"'>'", null, "'print'"
+
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -112,7 +114,9 @@ public class GLangLexer extends Lexer {
 	public ATN getATN() { return _ATN; }
 
 	public static final String _serializedATN =
+
 		"\u0004\u0000\u001a\u00b8\u0006\uffff\uffff\u0002\u0000\u0007\u0000\u0002"+
+
 		"\u0001\u0007\u0001\u0002\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002"+
 		"\u0004\u0007\u0004\u0002\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002"+
 		"\u0007\u0007\u0007\u0002\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002"+
@@ -121,6 +125,7 @@ public class GLangLexer extends Lexer {
 		"\u0002\u0012\u0007\u0012\u0002\u0013\u0007\u0013\u0002\u0014\u0007\u0014"+
 		"\u0002\u0015\u0007\u0015\u0002\u0016\u0007\u0016\u0002\u0017\u0007\u0017"+
 		"\u0002\u0018\u0007\u0018\u0002\u0019\u0007\u0019\u0001\u0000\u0001\u0000"+
+
 		"\u0001\u0001\u0001\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0003"+
 		"\u0001\u0003\u0001\u0004\u0001\u0004\u0001\u0005\u0001\u0005\u0001\u0006"+
 		"\u0001\u0006\u0001\u0007\u0001\u0007\u0001\b\u0001\b\u0001\t\u0001\t\u0001"+
@@ -230,6 +235,7 @@ public class GLangLexer extends Lexer {
 		"\u0000\u00b5\u00b6\u0001\u0000\u0000\u0000\u00b6\u00b7\u0006\u0019\u0000"+
 		"\u0000\u00b74\u0001\u0000\u0000\u0000\r\u0000q|\u0081\u0086\u008c\u0090"+
 		"\u0095\u0097\u009f\u00a8\u00ad\u00b4\u0001\u0006\u0000\u0000";
+
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
