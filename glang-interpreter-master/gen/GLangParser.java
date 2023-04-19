@@ -1,4 +1,6 @@
+
 // Generated from C:/Users/Vartotojas/interpretatorius/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -18,6 +20,7 @@ public class GLangParser extends Parser {
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
+
 		T__17=18, T__18=19, TYPE=20, PRINT=21, ID=22, INT=23, DOUBLE=24, COMMENT=25, 
 		WS=26;
 	public static final int
@@ -30,6 +33,7 @@ public class GLangParser extends Parser {
 			"program", "statement", "variableDeclaration", "assignment", "expression", 
 			"intMultiOp", "intAddOp", "ifStatement", "forLoop", "relationOp", "printStatement"
 
+
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -37,18 +41,21 @@ public class GLangParser extends Parser {
 	private static String[] makeLiteralNames() {
 		return new String[] {
 
+
 			null, "';'", "'='", "'++'", "'('", "')'", "'*'", "'/'", "'%'", "'+'", 
 			"'-'", "'if'", "'{'", "'}'", "'else'", "'for'", "'=='", "'!='", "'<'", 
 			"'>'", null, "'print'"
 
-		};
+
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
+
 			null, null, null, null, null, null, null, null, "TYPE", "PRINT", "ID", 
 			"INT", "DOUBLE", "COMMENT", "WS"
+
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -138,13 +145,16 @@ public class GLangParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 
+
 			setState(23); 
+
 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
+
 
 				setState(22);
 				statement();
@@ -153,8 +163,10 @@ public class GLangParser extends Parser {
 				setState(25); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
+
 			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 15763456L) != 0) );
 			setState(27);
+
 
 			match(EOF);
 			}
@@ -184,8 +196,10 @@ public class GLangParser extends Parser {
 		public PrintStatementContext printStatement() {
 			return getRuleContext(PrintStatementContext.class,0);
 		}
+
 		public ForLoopContext forLoop() {
 			return getRuleContext(ForLoopContext.class,0);
+
 		}
 		public StatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -211,7 +225,9 @@ public class GLangParser extends Parser {
 		enterRule(_localctx, 2, RULE_statement);
 		try {
 
+
 			setState(40);
+
 
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
@@ -219,9 +235,11 @@ public class GLangParser extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 
+
 				setState(29);
 				variableDeclaration();
 				setState(30);
+
 
 				match(T__0);
 				}
@@ -230,6 +248,7 @@ public class GLangParser extends Parser {
 			case INT:
 				enterOuterAlt(_localctx, 2);
 				{
+
 
 				setState(32);
 				assignment();
@@ -251,6 +270,7 @@ public class GLangParser extends Parser {
 				enterOuterAlt(_localctx, 4);
 				{
 
+
 				setState(36);
 				printStatement();
 				setState(37);
@@ -263,6 +283,7 @@ public class GLangParser extends Parser {
 				{
 				setState(39);
 				forLoop();
+
 				}
 				break;
 			default:
@@ -313,6 +334,8 @@ public class GLangParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 
+
+
 			setState(42);
 			match(TYPE);
 			setState(43);
@@ -320,6 +343,8 @@ public class GLangParser extends Parser {
 			setState(44);
 			match(T__1);
 			setState(45);
+
+
 
 			expression(0);
 			setState(46);
@@ -368,6 +393,7 @@ public class GLangParser extends Parser {
 		enterRule(_localctx, 6, RULE_assignment);
 		try {
 
+
 			setState(54);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
@@ -395,6 +421,7 @@ public class GLangParser extends Parser {
 				break;
 			default:
 				throw new NoViableAltException(this);
+
 
 			}
 		}
@@ -599,6 +626,24 @@ public class GLangParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class BooleanExpressionContext extends ExpressionContext {
+		public TerminalNode BOOLEAN() { return getToken(GLangParser.BOOLEAN, 0); }
+		public BooleanExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterBooleanExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitBooleanExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitBooleanExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 
 	public final ExpressionContext expression() throws RecognitionException {
 		return expression(0);
@@ -616,7 +661,9 @@ public class GLangParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 
+
 			setState(64);
+
 
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
@@ -627,7 +674,9 @@ public class GLangParser extends Parser {
 				_prevctx = _localctx;
 
 
+
 				setState(57);
+
 
 				match(INT);
 				}
@@ -638,7 +687,9 @@ public class GLangParser extends Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
+
 				setState(58);
+
 
 				match(ID);
 				}
@@ -649,18 +700,22 @@ public class GLangParser extends Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
+
 				setState(59);
 
 				match(DOUBLE);
 				}
 				break;
 			case T__3:
+
 				{
 				_localctx = new ParenthesesExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
+
 				setState(60);
+
 
 				match(T__3);
 				setState(61);
@@ -674,7 +729,9 @@ public class GLangParser extends Parser {
 			}
 			_ctx.stop = _input.LT(-1);
 
+
 			setState(76);
+
 
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
@@ -684,7 +741,9 @@ public class GLangParser extends Parser {
 					_prevctx = _localctx;
 					{
 
+
 					setState(74);
+
 
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
@@ -693,11 +752,13 @@ public class GLangParser extends Parser {
 						_localctx = new IntMultiOpExpressionContext(new ExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
 
+
 						setState(66);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
 						setState(67);
 						intMultiOp();
 						setState(68);
+
 						expression(3);
 
 						}
@@ -707,11 +768,13 @@ public class GLangParser extends Parser {
 						_localctx = new IntAddOpExpressionContext(new ExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
 
+
 						setState(70);
 						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
 						setState(71);
 						intAddOp();
 						setState(72);
+
 
 						expression(2);
 						}
@@ -720,7 +783,9 @@ public class GLangParser extends Parser {
 					} 
 				}
 
+
 				setState(78);
+
 
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
@@ -767,7 +832,9 @@ public class GLangParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 
+
 			setState(79);
+
 
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 448L) != 0)) ) {
@@ -820,9 +887,11 @@ public class GLangParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 
+
 			setState(81);
 
 			
+
 			_la = _input.LA(1);
 			if ( !(_la==T__7 || _la==T__8) ) {
 			_errHandler.recoverInline(this);
@@ -846,6 +915,7 @@ public class GLangParser extends Parser {
 	}
 
 	@SuppressWarnings("CheckReturnValue")
+
 	public static class DoubleMultiOpContext extends ParserRuleContext {
 		public DoubleMultiOpContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -913,17 +983,21 @@ public class GLangParser extends Parser {
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitDoubleAddOp(this);
+
 			else return visitor.visitChildren(this);
 		}
 	}
 
+
 	public final DoubleAddOpContext doubleAddOp() throws RecognitionException {
 		DoubleAddOpContext _localctx = new DoubleAddOpContext(_ctx, getState());
 		enterRule(_localctx, 16, RULE_doubleAddOp);
+
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
+
 			setState(89);
 
 			_la = _input.LA(1);
@@ -935,6 +1009,7 @@ public class GLangParser extends Parser {
 				_errHandler.reportMatch(this);
 				consume();
 			}
+
 			}
 		}
 		catch (RecognitionException re) {
@@ -986,6 +1061,7 @@ public class GLangParser extends Parser {
 
 	public final IfStatementContext ifStatement() throws RecognitionException {
 		IfStatementContext _localctx = new IfStatementContext(_ctx, getState());
+
 		enterRule(_localctx, 18, RULE_ifStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -1004,6 +1080,7 @@ public class GLangParser extends Parser {
 			setState(88);
 			match(T__4);
 			setState(89);
+
 
 			match(T__11);
 			setState(90);
@@ -1141,16 +1218,20 @@ public class GLangParser extends Parser {
 	public final RelationOpContext relationOp() throws RecognitionException {
 		RelationOpContext _localctx = new RelationOpContext(_ctx, getState());
 
+
 		enterRule(_localctx, 18, RULE_relationOp);
+
 
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 
+
 			setState(111);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 983040L) != 0)) ) {
+
 
 			_errHandler.recoverInline(this);
 			}
@@ -1200,13 +1281,16 @@ public class GLangParser extends Parser {
 	public final PrintStatementContext printStatement() throws RecognitionException {
 		PrintStatementContext _localctx = new PrintStatementContext(_ctx, getState());
 
+
 		enterRule(_localctx, 20, RULE_printStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
+
 			setState(113);
 			match(PRINT);
 			setState(114);
+
 
 			match(T__3);
 			setState(115);
@@ -1249,13 +1333,16 @@ public class GLangParser extends Parser {
 
 	public static final String _serializedATN =
 
+
 		"\u0004\u0001\u001aw\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
 		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0001\u0000\u0004\u0000\u0018"+
 		"\b\u0000\u000b\u0000\f\u0000\u0019\u0001\u0000\u0001\u0000\u0001\u0001"+
 		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
 		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0003\u0001)\b\u0001"+
+
 		"\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002"+
 		"\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003"+
 		"\u0003\u00037\b\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004"+
@@ -1274,12 +1361,14 @@ public class GLangParser extends Parser {
 		"\u0001\u0000\u0000\u0000\b@\u0001\u0000\u0000\u0000\nO\u0001\u0000\u0000"+
 		"\u0000\fQ\u0001\u0000\u0000\u0000\u000eS\u0001\u0000\u0000\u0000\u0010"+
 		"a\u0001\u0000\u0000\u0000\u0012o\u0001\u0000\u0000\u0000\u0014q\u0001"+
+
 		"\u0000\u0000\u0000\u0016\u0018\u0003\u0002\u0001\u0000\u0017\u0016\u0001"+
 		"\u0000\u0000\u0000\u0018\u0019\u0001\u0000\u0000\u0000\u0019\u0017\u0001"+
 		"\u0000\u0000\u0000\u0019\u001a\u0001\u0000\u0000\u0000\u001a\u001b\u0001"+
 		"\u0000\u0000\u0000\u001b\u001c\u0005\u0000\u0000\u0001\u001c\u0001\u0001"+
 		"\u0000\u0000\u0000\u001d\u001e\u0003\u0004\u0002\u0000\u001e\u001f\u0005"+
 		"\u0001\u0000\u0000\u001f)\u0001\u0000\u0000\u0000 !\u0003\u0006\u0003"+
+
 		"\u0000!\"\u0005\u0001\u0000\u0000\")\u0001\u0000\u0000\u0000#)\u0003\u000e"+
 		"\u0007\u0000$%\u0003\u0014\n\u0000%&\u0005\u0001\u0000\u0000&)\u0001\u0000"+
 		"\u0000\u0000\')\u0003\u0010\b\u0000(\u001d\u0001\u0000\u0000\u0000( \u0001"+
@@ -1315,6 +1404,7 @@ public class GLangParser extends Parser {
 		"\u0000\u0000qr\u0005\u0015\u0000\u0000rs\u0005\u0004\u0000\u0000st\u0003"+
 		"\b\u0004\u0000tu\u0005\u0005\u0000\u0000u\u0015\u0001\u0000\u0000\u0000"+
 		"\u0006\u0019(6@JL";
+
 
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
