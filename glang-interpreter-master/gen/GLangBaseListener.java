@@ -1,5 +1,4 @@
-
-
+// Generated from C:/Users/Vartotojas/interpretatorius/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -197,15 +196,12 @@ public class GLangBaseListener implements GLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-
 	@Override public void enterDoubleMultiOp(GLangParser.DoubleMultiOpContext ctx) { }
-
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-
 	@Override public void exitDoubleMultiOp(GLangParser.DoubleMultiOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -219,7 +215,18 @@ public class GLangBaseListener implements GLangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDoubleAddOp(GLangParser.DoubleAddOpContext ctx) { }
-
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterWhileLoop(GLangParser.WhileLoopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitWhileLoop(GLangParser.WhileLoopContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -1,6 +1,4 @@
-
 package gen;// Generated from C:/Users/Vartotojas/interpretatorius/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
-
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -177,7 +175,6 @@ public interface GLangListener extends ParseTreeListener {
 	 */
 	void exitIntAddOp(GLangParser.IntAddOpContext ctx);
 	/**
-
 	 * Enter a parse tree produced by {@link GLangParser#doubleMultiOp}.
 	 * @param ctx the parse tree
 	 */
@@ -197,7 +194,16 @@ public interface GLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDoubleAddOp(GLangParser.DoubleAddOpContext ctx);
-
+	/**
+	 * Enter a parse tree produced by {@link GLangParser#whileLoop}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhileLoop(GLangParser.WhileLoopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GLangParser#whileLoop}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhileLoop(GLangParser.WhileLoopContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GLangParser#ifStatement}.
 	 * @param ctx the parse tree
