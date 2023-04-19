@@ -94,6 +94,12 @@ public interface GLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIfStatement(GLangParser.IfStatementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link GLangParser#forLoop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForLoop(GLangParser.ForLoopContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link GLangParser#relationOp}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
