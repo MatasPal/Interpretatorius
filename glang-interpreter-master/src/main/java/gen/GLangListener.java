@@ -71,6 +71,18 @@ public interface GLangListener extends ParseTreeListener {
 	 */
 	void exitIdExpression(GLangParser.IdExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code doubleExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterDoubleExpression(GLangParser.DoubleExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code doubleExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitDoubleExpression(GLangParser.DoubleExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code intExpression}
 	 * labeled alternative in {@link GLangParser#expression}.
 	 * @param ctx the parse tree
