@@ -20,22 +20,23 @@ expression
     | '(' expression ')'                #parenthesesExpression
     | expression intMultiOp expression  #intMultiOpExpression
     | expression intAddOp expression    #intAddOpExpression
-  //  | expression doubleMultiOp expression  #doubleMultiOpExpression
-  //  | expression doubleAddOp expression    #doubleAddOpExpression
+    | expression doubleMultiOp expression  #doubleMultiOpExpression
+    | expression doubleAddOp expression    #doubleAddOpExpression
     ;
 
 intMultiOp : '*' | '/' | '%' ;
 intAddOp : '+' | '-' ;
 
-//doubleMultiOp : '' | '/' | '%' ;
-//doubleAddOp : '+' | '-' ;
+doubleMultiOp : '*' | '/' | '%' ;
+doubleAddOp : '+' | '-' ;
+
 
 ifStatement : 'if' '(' expression relationOp expression ')' '{' statement '}'
     ('else' '{' statement '}') ;
 
 
 
-relationOp : '==' | '!=' ;
+relationOp : '==' | '!=' | '>' | '<' | '>=' | '<=';
 
 printStatement : PRINT '(' expression ')' ;
 
@@ -47,7 +48,7 @@ TYPE    : 'int'
 PRINT   : 'print';
 ID      : [a-zA-Z]+ ;
 INT     : [0-9]+ ;
-DOUBLE  : [0-9]+ '.' [0-9]+ ([eE][+-]?[0-9]+)? ;
+DOUBLE  : [0-9]+'.'[0-9]+ ;
 
 COMMENT : ( '//' ~[\r\n]* | '/*' .*? '*/' ) -> skip ;
 WS      : [ \t\r\n]+ -> skip ;

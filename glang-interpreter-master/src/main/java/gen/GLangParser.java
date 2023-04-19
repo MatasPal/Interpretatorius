@@ -1,4 +1,4 @@
-package gen;// Generated from C:/Studijos/2 kursas/2 semestras/Programavimo kalbu teorija/Grupes projektas/glang-interpreter-master/2/glang-interpreter-master/glang-interpreter-master/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+package gen;// Generated from C:/Users/Vartotojas/interpretatorius/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -17,16 +17,18 @@ public class GLangParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, TYPE=16, PRINT=17, 
-		ID=18, INT=19, DOUBLE=20, COMMENT=21, WS=22;
+		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
+		T__17=18, T__18=19, TYPE=20, PRINT=21, ID=22, INT=23, DOUBLE=24, COMMENT=25, 
+		WS=26;
 	public static final int
 		RULE_program = 0, RULE_statement = 1, RULE_variableDeclaration = 2, RULE_assignment = 3, 
-		RULE_expression = 4, RULE_intMultiOp = 5, RULE_intAddOp = 6, RULE_ifStatement = 7, 
-		RULE_relationOp = 8, RULE_printStatement = 9;
+		RULE_expression = 4, RULE_intMultiOp = 5, RULE_intAddOp = 6, RULE_doubleMultiOp = 7, 
+		RULE_doubleAddOp = 8, RULE_ifStatement = 9, RULE_relationOp = 10, RULE_printStatement = 11;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"program", "statement", "variableDeclaration", "assignment", "expression", 
-			"intMultiOp", "intAddOp", "ifStatement", "relationOp", "printStatement"
+			"intMultiOp", "intAddOp", "doubleMultiOp", "doubleAddOp", "ifStatement", 
+			"relationOp", "printStatement"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -34,15 +36,16 @@ public class GLangParser extends Parser {
 	private static String[] makeLiteralNames() {
 		return new String[] {
 			null, "';'", "'='", "'('", "')'", "'*'", "'/'", "'%'", "'+'", "'-'", 
-			"'if'", "'{'", "'}'", "'else'", "'=='", "'!='", null, "'print'"
+			"'if'", "'{'", "'}'", "'else'", "'=='", "'!='", "'>'", "'<'", "'>='", 
+			"'<='", null, "'print'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, null, null, "TYPE", "PRINT", "ID", "INT", "DOUBLE", "COMMENT", 
-			"WS"
+			null, null, null, null, null, null, null, null, "TYPE", "PRINT", "ID", 
+			"INT", "DOUBLE", "COMMENT", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -111,15 +114,15 @@ public class GLangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_program; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterProgram(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterProgram(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitProgram(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitProgram(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitProgram(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitProgram(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -131,21 +134,21 @@ public class GLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(21); 
+			setState(25); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(20);
+				setState(24);
 				statement();
 				}
 				}
-				setState(23); 
+				setState(27); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 459776L) != 0) );
-			setState(25);
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 7341056L) != 0) );
+			setState(29);
 			match(EOF);
 			}
 		}
@@ -180,15 +183,15 @@ public class GLangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_statement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterStatement(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitStatement(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitStatement(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -197,40 +200,40 @@ public class GLangParser extends Parser {
 		StatementContext _localctx = new StatementContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_statement);
 		try {
-			setState(37);
+			setState(41);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case TYPE:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(27);
+				setState(31);
 				variableDeclaration();
-				setState(28);
+				setState(32);
 				match(T__0);
 				}
 				break;
 			case ID:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(30);
+				setState(34);
 				assignment();
-				setState(31);
+				setState(35);
 				match(T__0);
 				}
 				break;
 			case T__9:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(33);
+				setState(37);
 				ifStatement();
 				}
 				break;
 			case PRINT:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(34);
+				setState(38);
 				printStatement();
-				setState(35);
+				setState(39);
 				match(T__0);
 				}
 				break;
@@ -262,15 +265,15 @@ public class GLangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_variableDeclaration; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterVariableDeclaration(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterVariableDeclaration(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitVariableDeclaration(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitVariableDeclaration(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitVariableDeclaration(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitVariableDeclaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -281,13 +284,13 @@ public class GLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(39);
+			setState(43);
 			match(TYPE);
-			setState(40);
+			setState(44);
 			match(ID);
-			setState(41);
+			setState(45);
 			match(T__1);
-			setState(42);
+			setState(46);
 			expression(0);
 			}
 		}
@@ -314,15 +317,15 @@ public class GLangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_assignment; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterAssignment(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterAssignment(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitAssignment(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitAssignment(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitAssignment(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitAssignment(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -333,11 +336,11 @@ public class GLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(44);
+			setState(48);
 			match(ID);
-			setState(45);
+			setState(49);
 			match(T__1);
-			setState(46);
+			setState(50);
 			expression(0);
 			}
 		}
@@ -372,15 +375,15 @@ public class GLangParser extends Parser {
 		public ParenthesesExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterParenthesesExpression(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterParenthesesExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitParenthesesExpression(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitParenthesesExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitParenthesesExpression(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitParenthesesExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -390,15 +393,15 @@ public class GLangParser extends Parser {
 		public IdExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterIdExpression(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterIdExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitIdExpression(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitIdExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitIdExpression(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitIdExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -408,15 +411,41 @@ public class GLangParser extends Parser {
 		public DoubleExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterDoubleExpression(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterDoubleExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitDoubleExpression(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitDoubleExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitDoubleExpression(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitDoubleExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class DoubleMultiOpExpressionContext extends ExpressionContext {
+		public List<ExpressionContext> expression() {
+			return getRuleContexts(ExpressionContext.class);
+		}
+		public ExpressionContext expression(int i) {
+			return getRuleContext(ExpressionContext.class,i);
+		}
+		public DoubleMultiOpContext doubleMultiOp() {
+			return getRuleContext(DoubleMultiOpContext.class,0);
+		}
+		public DoubleMultiOpExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterDoubleMultiOpExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitDoubleMultiOpExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitDoubleMultiOpExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -426,15 +455,41 @@ public class GLangParser extends Parser {
 		public IntExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterIntExpression(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterIntExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitIntExpression(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitIntExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitIntExpression(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitIntExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class DoubleAddOpExpressionContext extends ExpressionContext {
+		public List<ExpressionContext> expression() {
+			return getRuleContexts(ExpressionContext.class);
+		}
+		public ExpressionContext expression(int i) {
+			return getRuleContext(ExpressionContext.class,i);
+		}
+		public DoubleAddOpContext doubleAddOp() {
+			return getRuleContext(DoubleAddOpContext.class,0);
+		}
+		public DoubleAddOpExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterDoubleAddOpExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitDoubleAddOpExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitDoubleAddOpExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -452,15 +507,15 @@ public class GLangParser extends Parser {
 		public IntAddOpExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterIntAddOpExpression(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterIntAddOpExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitIntAddOpExpression(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitIntAddOpExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitIntAddOpExpression(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitIntAddOpExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -478,15 +533,15 @@ public class GLangParser extends Parser {
 		public IntMultiOpExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterIntMultiOpExpression(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterIntMultiOpExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitIntMultiOpExpression(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitIntMultiOpExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitIntMultiOpExpression(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitIntMultiOpExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -506,7 +561,7 @@ public class GLangParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(56);
+			setState(60);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case INT:
@@ -515,7 +570,7 @@ public class GLangParser extends Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				setState(49);
+				setState(53);
 				match(INT);
 				}
 				break;
@@ -524,7 +579,7 @@ public class GLangParser extends Parser {
 				_localctx = new IdExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(50);
+				setState(54);
 				match(ID);
 				}
 				break;
@@ -533,7 +588,7 @@ public class GLangParser extends Parser {
 				_localctx = new DoubleExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(51);
+				setState(55);
 				match(DOUBLE);
 				}
 				break;
@@ -542,11 +597,11 @@ public class GLangParser extends Parser {
 				_localctx = new ParenthesesExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(52);
+				setState(56);
 				match(T__2);
-				setState(53);
+				setState(57);
 				expression(0);
-				setState(54);
+				setState(58);
 				match(T__3);
 				}
 				break;
@@ -554,7 +609,7 @@ public class GLangParser extends Parser {
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(68);
+			setState(80);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER ) {
@@ -562,37 +617,61 @@ public class GLangParser extends Parser {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(66);
+					setState(78);
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 					case 1:
 						{
 						_localctx = new IntMultiOpExpressionContext(new ExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
-						setState(58);
-						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(59);
+						setState(62);
+						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
+						setState(63);
 						intMultiOp();
-						setState(60);
-						expression(3);
+						setState(64);
+						expression(5);
 						}
 						break;
 					case 2:
 						{
 						_localctx = new IntAddOpExpressionContext(new ExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
-						setState(62);
-						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(63);
+						setState(66);
+						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
+						setState(67);
 						intAddOp();
-						setState(64);
+						setState(68);
+						expression(4);
+						}
+						break;
+					case 3:
+						{
+						_localctx = new DoubleMultiOpExpressionContext(new ExpressionContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expression);
+						setState(70);
+						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
+						setState(71);
+						doubleMultiOp();
+						setState(72);
+						expression(3);
+						}
+						break;
+					case 4:
+						{
+						_localctx = new DoubleAddOpExpressionContext(new ExpressionContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expression);
+						setState(74);
+						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
+						setState(75);
+						doubleAddOp();
+						setState(76);
 						expression(2);
 						}
 						break;
 					}
 					} 
 				}
-				setState(70);
+				setState(82);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			}
@@ -617,15 +696,15 @@ public class GLangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_intMultiOp; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterIntMultiOp(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterIntMultiOp(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitIntMultiOp(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitIntMultiOp(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitIntMultiOp(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitIntMultiOp(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -637,7 +716,7 @@ public class GLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(71);
+			setState(83);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 224L) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -668,15 +747,15 @@ public class GLangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_intAddOp; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterIntAddOp(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterIntAddOp(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitIntAddOp(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitIntAddOp(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitIntAddOp(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitIntAddOp(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -688,7 +767,109 @@ public class GLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(73);
+			setState(85);
+			_la = _input.LA(1);
+			if ( !(_la==T__7 || _la==T__8) ) {
+			_errHandler.recoverInline(this);
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class DoubleMultiOpContext extends ParserRuleContext {
+		public DoubleMultiOpContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_doubleMultiOp; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterDoubleMultiOp(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitDoubleMultiOp(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitDoubleMultiOp(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final DoubleMultiOpContext doubleMultiOp() throws RecognitionException {
+		DoubleMultiOpContext _localctx = new DoubleMultiOpContext(_ctx, getState());
+		enterRule(_localctx, 14, RULE_doubleMultiOp);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(87);
+			_la = _input.LA(1);
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 224L) != 0)) ) {
+			_errHandler.recoverInline(this);
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class DoubleAddOpContext extends ParserRuleContext {
+		public DoubleAddOpContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_doubleAddOp; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterDoubleAddOp(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitDoubleAddOp(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitDoubleAddOp(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final DoubleAddOpContext doubleAddOp() throws RecognitionException {
+		DoubleAddOpContext _localctx = new DoubleAddOpContext(_ctx, getState());
+		enterRule(_localctx, 16, RULE_doubleAddOp);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(89);
 			_la = _input.LA(1);
 			if ( !(_la==T__7 || _la==T__8) ) {
 			_errHandler.recoverInline(this);
@@ -734,51 +915,51 @@ public class GLangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_ifStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterIfStatement(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterIfStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitIfStatement(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitIfStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitIfStatement(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitIfStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final IfStatementContext ifStatement() throws RecognitionException {
 		IfStatementContext _localctx = new IfStatementContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_ifStatement);
+		enterRule(_localctx, 18, RULE_ifStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(75);
+			setState(91);
 			match(T__9);
-			setState(76);
+			setState(92);
 			match(T__2);
-			setState(77);
+			setState(93);
 			expression(0);
-			setState(78);
+			setState(94);
 			relationOp();
-			setState(79);
+			setState(95);
 			expression(0);
-			setState(80);
+			setState(96);
 			match(T__3);
-			setState(81);
+			setState(97);
 			match(T__10);
-			setState(82);
+			setState(98);
 			statement();
-			setState(83);
+			setState(99);
 			match(T__11);
 			{
-			setState(84);
+			setState(100);
 			match(T__12);
-			setState(85);
+			setState(101);
 			match(T__10);
-			setState(86);
+			setState(102);
 			statement();
-			setState(87);
+			setState(103);
 			match(T__11);
 			}
 			}
@@ -802,29 +983,29 @@ public class GLangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_relationOp; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterRelationOp(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterRelationOp(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitRelationOp(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitRelationOp(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitRelationOp(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitRelationOp(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final RelationOpContext relationOp() throws RecognitionException {
 		RelationOpContext _localctx = new RelationOpContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_relationOp);
+		enterRule(_localctx, 20, RULE_relationOp);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(89);
+			setState(105);
 			_la = _input.LA(1);
-			if ( !(_la==T__13 || _la==T__14) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 1032192L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -857,32 +1038,32 @@ public class GLangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_printStatement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).enterPrintStatement(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).enterPrintStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GLangListener ) ((GLangListener)listener).exitPrintStatement(this);
+			if ( listener instanceof GLangListener) ((GLangListener)listener).exitPrintStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GLangVisitor) return ((GLangVisitor<? extends T>)visitor).visitPrintStatement(this);
+			if ( visitor instanceof GLangVisitor ) return ((GLangVisitor<? extends T>)visitor).visitPrintStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final PrintStatementContext printStatement() throws RecognitionException {
 		PrintStatementContext _localctx = new PrintStatementContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_printStatement);
+		enterRule(_localctx, 22, RULE_printStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(91);
+			setState(107);
 			match(PRINT);
-			setState(92);
+			setState(108);
 			match(T__2);
-			setState(93);
+			setState(109);
 			expression(0);
-			setState(94);
+			setState(110);
 			match(T__3);
 			}
 		}
@@ -907,69 +1088,80 @@ public class GLangParser extends Parser {
 	private boolean expression_sempred(ExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 2);
+			return precpred(_ctx, 4);
 		case 1:
+			return precpred(_ctx, 3);
+		case 2:
+			return precpred(_ctx, 2);
+		case 3:
 			return precpred(_ctx, 1);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u0016a\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001\u001aq\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
-		"\b\u0007\b\u0002\t\u0007\t\u0001\u0000\u0004\u0000\u0016\b\u0000\u000b"+
-		"\u0000\f\u0000\u0017\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0001\u0003\u0001&\b\u0001\u0001\u0002\u0001\u0002\u0001"+
-		"\u0002\u0001\u0002\u0001\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0001"+
-		"\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001"+
-		"\u0004\u0001\u0004\u0001\u0004\u0003\u00049\b\u0004\u0001\u0004\u0001"+
-		"\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001"+
-		"\u0004\u0005\u0004C\b\u0004\n\u0004\f\u0004F\t\u0004\u0001\u0005\u0001"+
-		"\u0005\u0001\u0006\u0001\u0006\u0001\u0007\u0001\u0007\u0001\u0007\u0001"+
-		"\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001"+
-		"\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\b\u0001\b"+
-		"\u0001\t\u0001\t\u0001\t\u0001\t\u0001\t\u0001\t\u0000\u0001\b\n\u0000"+
-		"\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0000\u0003\u0001\u0000\u0005"+
-		"\u0007\u0001\u0000\b\t\u0001\u0000\u000e\u000f_\u0000\u0015\u0001\u0000"+
-		"\u0000\u0000\u0002%\u0001\u0000\u0000\u0000\u0004\'\u0001\u0000\u0000"+
-		"\u0000\u0006,\u0001\u0000\u0000\u0000\b8\u0001\u0000\u0000\u0000\nG\u0001"+
-		"\u0000\u0000\u0000\fI\u0001\u0000\u0000\u0000\u000eK\u0001\u0000\u0000"+
-		"\u0000\u0010Y\u0001\u0000\u0000\u0000\u0012[\u0001\u0000\u0000\u0000\u0014"+
-		"\u0016\u0003\u0002\u0001\u0000\u0015\u0014\u0001\u0000\u0000\u0000\u0016"+
-		"\u0017\u0001\u0000\u0000\u0000\u0017\u0015\u0001\u0000\u0000\u0000\u0017"+
-		"\u0018\u0001\u0000\u0000\u0000\u0018\u0019\u0001\u0000\u0000\u0000\u0019"+
-		"\u001a\u0005\u0000\u0000\u0001\u001a\u0001\u0001\u0000\u0000\u0000\u001b"+
-		"\u001c\u0003\u0004\u0002\u0000\u001c\u001d\u0005\u0001\u0000\u0000\u001d"+
-		"&\u0001\u0000\u0000\u0000\u001e\u001f\u0003\u0006\u0003\u0000\u001f \u0005"+
-		"\u0001\u0000\u0000 &\u0001\u0000\u0000\u0000!&\u0003\u000e\u0007\u0000"+
-		"\"#\u0003\u0012\t\u0000#$\u0005\u0001\u0000\u0000$&\u0001\u0000\u0000"+
-		"\u0000%\u001b\u0001\u0000\u0000\u0000%\u001e\u0001\u0000\u0000\u0000%"+
-		"!\u0001\u0000\u0000\u0000%\"\u0001\u0000\u0000\u0000&\u0003\u0001\u0000"+
-		"\u0000\u0000\'(\u0005\u0010\u0000\u0000()\u0005\u0012\u0000\u0000)*\u0005"+
-		"\u0002\u0000\u0000*+\u0003\b\u0004\u0000+\u0005\u0001\u0000\u0000\u0000"+
-		",-\u0005\u0012\u0000\u0000-.\u0005\u0002\u0000\u0000./\u0003\b\u0004\u0000"+
-		"/\u0007\u0001\u0000\u0000\u000001\u0006\u0004\uffff\uffff\u000019\u0005"+
-		"\u0013\u0000\u000029\u0005\u0012\u0000\u000039\u0005\u0014\u0000\u0000"+
-		"45\u0005\u0003\u0000\u000056\u0003\b\u0004\u000067\u0005\u0004\u0000\u0000"+
-		"79\u0001\u0000\u0000\u000080\u0001\u0000\u0000\u000082\u0001\u0000\u0000"+
-		"\u000083\u0001\u0000\u0000\u000084\u0001\u0000\u0000\u00009D\u0001\u0000"+
-		"\u0000\u0000:;\n\u0002\u0000\u0000;<\u0003\n\u0005\u0000<=\u0003\b\u0004"+
-		"\u0003=C\u0001\u0000\u0000\u0000>?\n\u0001\u0000\u0000?@\u0003\f\u0006"+
-		"\u0000@A\u0003\b\u0004\u0002AC\u0001\u0000\u0000\u0000B:\u0001\u0000\u0000"+
-		"\u0000B>\u0001\u0000\u0000\u0000CF\u0001\u0000\u0000\u0000DB\u0001\u0000"+
-		"\u0000\u0000DE\u0001\u0000\u0000\u0000E\t\u0001\u0000\u0000\u0000FD\u0001"+
-		"\u0000\u0000\u0000GH\u0007\u0000\u0000\u0000H\u000b\u0001\u0000\u0000"+
-		"\u0000IJ\u0007\u0001\u0000\u0000J\r\u0001\u0000\u0000\u0000KL\u0005\n"+
-		"\u0000\u0000LM\u0005\u0003\u0000\u0000MN\u0003\b\u0004\u0000NO\u0003\u0010"+
-		"\b\u0000OP\u0003\b\u0004\u0000PQ\u0005\u0004\u0000\u0000QR\u0005\u000b"+
-		"\u0000\u0000RS\u0003\u0002\u0001\u0000ST\u0005\f\u0000\u0000TU\u0005\r"+
-		"\u0000\u0000UV\u0005\u000b\u0000\u0000VW\u0003\u0002\u0001\u0000WX\u0005"+
-		"\f\u0000\u0000X\u000f\u0001\u0000\u0000\u0000YZ\u0007\u0002\u0000\u0000"+
-		"Z\u0011\u0001\u0000\u0000\u0000[\\\u0005\u0011\u0000\u0000\\]\u0005\u0003"+
-		"\u0000\u0000]^\u0003\b\u0004\u0000^_\u0005\u0004\u0000\u0000_\u0013\u0001"+
-		"\u0000\u0000\u0000\u0005\u0017%8BD";
+		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0001"+
+		"\u0000\u0004\u0000\u001a\b\u0000\u000b\u0000\f\u0000\u001b\u0001\u0000"+
+		"\u0001\u0000\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0003\u0001"+
+		"*\b\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002"+
+		"\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0004\u0001\u0004"+
+		"\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004"+
+		"\u0003\u0004=\b\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004"+
+		"\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004"+
+		"\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004"+
+		"\u0005\u0004O\b\u0004\n\u0004\f\u0004R\t\u0004\u0001\u0005\u0001\u0005"+
+		"\u0001\u0006\u0001\u0006\u0001\u0007\u0001\u0007\u0001\b\u0001\b\u0001"+
+		"\t\u0001\t\u0001\t\u0001\t\u0001\t\u0001\t\u0001\t\u0001\t\u0001\t\u0001"+
+		"\t\u0001\t\u0001\t\u0001\t\u0001\t\u0001\n\u0001\n\u0001\u000b\u0001\u000b"+
+		"\u0001\u000b\u0001\u000b\u0001\u000b\u0001\u000b\u0000\u0001\b\f\u0000"+
+		"\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016\u0000\u0003\u0001"+
+		"\u0000\u0005\u0007\u0001\u0000\b\t\u0001\u0000\u000e\u0013o\u0000\u0019"+
+		"\u0001\u0000\u0000\u0000\u0002)\u0001\u0000\u0000\u0000\u0004+\u0001\u0000"+
+		"\u0000\u0000\u00060\u0001\u0000\u0000\u0000\b<\u0001\u0000\u0000\u0000"+
+		"\nS\u0001\u0000\u0000\u0000\fU\u0001\u0000\u0000\u0000\u000eW\u0001\u0000"+
+		"\u0000\u0000\u0010Y\u0001\u0000\u0000\u0000\u0012[\u0001\u0000\u0000\u0000"+
+		"\u0014i\u0001\u0000\u0000\u0000\u0016k\u0001\u0000\u0000\u0000\u0018\u001a"+
+		"\u0003\u0002\u0001\u0000\u0019\u0018\u0001\u0000\u0000\u0000\u001a\u001b"+
+		"\u0001\u0000\u0000\u0000\u001b\u0019\u0001\u0000\u0000\u0000\u001b\u001c"+
+		"\u0001\u0000\u0000\u0000\u001c\u001d\u0001\u0000\u0000\u0000\u001d\u001e"+
+		"\u0005\u0000\u0000\u0001\u001e\u0001\u0001\u0000\u0000\u0000\u001f \u0003"+
+		"\u0004\u0002\u0000 !\u0005\u0001\u0000\u0000!*\u0001\u0000\u0000\u0000"+
+		"\"#\u0003\u0006\u0003\u0000#$\u0005\u0001\u0000\u0000$*\u0001\u0000\u0000"+
+		"\u0000%*\u0003\u0012\t\u0000&\'\u0003\u0016\u000b\u0000\'(\u0005\u0001"+
+		"\u0000\u0000(*\u0001\u0000\u0000\u0000)\u001f\u0001\u0000\u0000\u0000"+
+		")\"\u0001\u0000\u0000\u0000)%\u0001\u0000\u0000\u0000)&\u0001\u0000\u0000"+
+		"\u0000*\u0003\u0001\u0000\u0000\u0000+,\u0005\u0014\u0000\u0000,-\u0005"+
+		"\u0016\u0000\u0000-.\u0005\u0002\u0000\u0000./\u0003\b\u0004\u0000/\u0005"+
+		"\u0001\u0000\u0000\u000001\u0005\u0016\u0000\u000012\u0005\u0002\u0000"+
+		"\u000023\u0003\b\u0004\u00003\u0007\u0001\u0000\u0000\u000045\u0006\u0004"+
+		"\uffff\uffff\u00005=\u0005\u0017\u0000\u00006=\u0005\u0016\u0000\u0000"+
+		"7=\u0005\u0018\u0000\u000089\u0005\u0003\u0000\u00009:\u0003\b\u0004\u0000"+
+		":;\u0005\u0004\u0000\u0000;=\u0001\u0000\u0000\u0000<4\u0001\u0000\u0000"+
+		"\u0000<6\u0001\u0000\u0000\u0000<7\u0001\u0000\u0000\u0000<8\u0001\u0000"+
+		"\u0000\u0000=P\u0001\u0000\u0000\u0000>?\n\u0004\u0000\u0000?@\u0003\n"+
+		"\u0005\u0000@A\u0003\b\u0004\u0005AO\u0001\u0000\u0000\u0000BC\n\u0003"+
+		"\u0000\u0000CD\u0003\f\u0006\u0000DE\u0003\b\u0004\u0004EO\u0001\u0000"+
+		"\u0000\u0000FG\n\u0002\u0000\u0000GH\u0003\u000e\u0007\u0000HI\u0003\b"+
+		"\u0004\u0003IO\u0001\u0000\u0000\u0000JK\n\u0001\u0000\u0000KL\u0003\u0010"+
+		"\b\u0000LM\u0003\b\u0004\u0002MO\u0001\u0000\u0000\u0000N>\u0001\u0000"+
+		"\u0000\u0000NB\u0001\u0000\u0000\u0000NF\u0001\u0000\u0000\u0000NJ\u0001"+
+		"\u0000\u0000\u0000OR\u0001\u0000\u0000\u0000PN\u0001\u0000\u0000\u0000"+
+		"PQ\u0001\u0000\u0000\u0000Q\t\u0001\u0000\u0000\u0000RP\u0001\u0000\u0000"+
+		"\u0000ST\u0007\u0000\u0000\u0000T\u000b\u0001\u0000\u0000\u0000UV\u0007"+
+		"\u0001\u0000\u0000V\r\u0001\u0000\u0000\u0000WX\u0007\u0000\u0000\u0000"+
+		"X\u000f\u0001\u0000\u0000\u0000YZ\u0007\u0001\u0000\u0000Z\u0011\u0001"+
+		"\u0000\u0000\u0000[\\\u0005\n\u0000\u0000\\]\u0005\u0003\u0000\u0000]"+
+		"^\u0003\b\u0004\u0000^_\u0003\u0014\n\u0000_`\u0003\b\u0004\u0000`a\u0005"+
+		"\u0004\u0000\u0000ab\u0005\u000b\u0000\u0000bc\u0003\u0002\u0001\u0000"+
+		"cd\u0005\f\u0000\u0000de\u0005\r\u0000\u0000ef\u0005\u000b\u0000\u0000"+
+		"fg\u0003\u0002\u0001\u0000gh\u0005\f\u0000\u0000h\u0013\u0001\u0000\u0000"+
+		"\u0000ij\u0007\u0002\u0000\u0000j\u0015\u0001\u0000\u0000\u0000kl\u0005"+
+		"\u0015\u0000\u0000lm\u0005\u0003\u0000\u0000mn\u0003\b\u0004\u0000no\u0005"+
+		"\u0004\u0000\u0000o\u0017\u0001\u0000\u0000\u0000\u0005\u001b)<NP";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
