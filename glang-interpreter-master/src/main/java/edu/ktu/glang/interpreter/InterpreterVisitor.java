@@ -73,8 +73,9 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
         return visit(ctx.expression());
     }
 
+
     @Override
-    public Object visitIntAddOpExpression(GLangParser.IntAddOpExpressionContext ctx) {
+    /*public Object visitIntAddOpExpression(GLangParser.IntAddOpExpressionContext ctx) {
         Object val1 = visit(ctx.expression(0));
         Object val2 = visit(ctx.expression(1));
         return switch (ctx.intAddOp().getText()) {
