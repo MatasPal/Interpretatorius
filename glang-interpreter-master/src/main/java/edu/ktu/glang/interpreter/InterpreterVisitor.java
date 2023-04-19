@@ -85,6 +85,17 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
     }
 
     @Override
+    public Object visitDoubleAddOpExpression(GLangParser.DoubleAddOpExpressionContext ctx) {
+        Object val1 = visit(ctx.expression(0));
+        Object val2 = visit(ctx.expression(1));
+        return switch (ctx.doubleAddOp().getText()) {
+            case "+" -> (Double) val1 + (Double) val2;
+            case "-" -> (Double) val1 - (Double) val2;
+            default -> null;
+        };
+    }
+
+    @Override
     public Object visitIntMultiOpExpression(GLangParser.IntMultiOpExpressionContext ctx) {
         Object val1 = visit(ctx.expression(0));
         Object val2 = visit(ctx.expression(1));
