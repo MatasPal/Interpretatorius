@@ -10,9 +10,12 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
     private final SymbolTable symbolTable;
     private final IfStatementVisitor ifStatementVisitor;
 
+    private final WhileLoopVisitor whileLoopVisitor;
+
     public InterpreterVisitor(SymbolTable symbolTable) {
         this.symbolTable = symbolTable;
         this.ifStatementVisitor = new IfStatementVisitor(this);
+        this.whileLoopVisitor = new WhileLoopVisitor(this);
     }
 
     @Override
@@ -52,6 +55,11 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
     @Override
     public Object visitDoubleExpression(GLangParser.DoubleExpressionContext ctx) {
         return Double.parseDouble(ctx.DOUBLE().getText());
+    }
+
+    @Override
+    public Object visitBooleanExpression(GLangParser.BooleanExpressionContext ctx) {
+        return Boolean.parseBoolean(ctx.BOOLEAN().getText());
     }
 
     @Override
@@ -100,5 +108,9 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
     @Override
     public Object visitIfStatement(GLangParser.IfStatementContext ctx) {
         return this.ifStatementVisitor.visitIfStatement(ctx);
+    }
+    @Override
+    public Object visitWhileLoop(GLangParser.WhileLoopContext ctx){
+        return this.whileLoopVisitor.visitWhileLoop(ctx);
     }
 }

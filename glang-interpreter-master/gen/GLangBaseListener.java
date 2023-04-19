@@ -1,4 +1,4 @@
-// Generated from C:/Studijos/2 kursas/2 semestras/Programavimo kalbu teorija/Grupes projektas/glang-interpreter-master/2/glang-interpreter-master/glang-interpreter-master/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+// Generated from C:/Users/Erikas/Documents/GitHub/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -136,6 +136,18 @@ public class GLangBaseListener implements GLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterBooleanExpression(GLangParser.BooleanExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBooleanExpression(GLangParser.BooleanExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterIntMultiOp(GLangParser.IntMultiOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -155,6 +167,18 @@ public class GLangBaseListener implements GLangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitIntAddOp(GLangParser.IntAddOpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterWhileLoop(GLangParser.WhileLoopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitWhileLoop(GLangParser.WhileLoopContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

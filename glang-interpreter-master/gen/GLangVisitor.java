@@ -1,4 +1,4 @@
-// Generated from C:/Studijos/2 kursas/2 semestras/Programavimo kalbu teorija/Grupes projektas/glang-interpreter-master/2/glang-interpreter-master/glang-interpreter-master/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+// Generated from C:/Users/Erikas/Documents/GitHub/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -76,6 +76,13 @@ public interface GLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIntMultiOpExpression(GLangParser.IntMultiOpExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code booleanExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBooleanExpression(GLangParser.BooleanExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link GLangParser#intMultiOp}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -87,6 +94,12 @@ public interface GLangVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitIntAddOp(GLangParser.IntAddOpContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GLangParser#whileLoop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWhileLoop(GLangParser.WhileLoopContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link GLangParser#ifStatement}.
 	 * @param ctx the parse tree

@@ -33,6 +33,8 @@ public Object visitIfStatement(GLangParser.IfStatementContext ctx) {
         return switch (relOp) {
             case "==" -> left == right;
             case "!=" -> left != right;
+
+
             default -> throw new RuntimeException("Unsupported operator.");
         };
     }

@@ -1,4 +1,4 @@
-// Generated from C:/Studijos/2 kursas/2 semestras/Programavimo kalbu teorija/Grupes projektas/glang-interpreter-master/2/glang-interpreter-master/glang-interpreter-master/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+// Generated from C:/Users/Erikas/Documents/GitHub/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -119,6 +119,18 @@ public interface GLangListener extends ParseTreeListener {
 	 */
 	void exitIntMultiOpExpression(GLangParser.IntMultiOpExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code booleanExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterBooleanExpression(GLangParser.BooleanExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code booleanExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitBooleanExpression(GLangParser.BooleanExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link GLangParser#intMultiOp}.
 	 * @param ctx the parse tree
 	 */
@@ -138,6 +150,16 @@ public interface GLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIntAddOp(GLangParser.IntAddOpContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GLangParser#whileLoop}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhileLoop(GLangParser.WhileLoopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GLangParser#whileLoop}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhileLoop(GLangParser.WhileLoopContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GLangParser#ifStatement}.
 	 * @param ctx the parse tree

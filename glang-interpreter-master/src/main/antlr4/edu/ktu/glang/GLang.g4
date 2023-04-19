@@ -7,6 +7,7 @@ statement
     | assignment ';'
     | ifStatement
     | printStatement ';'
+    | whileLoop
     ;
 
 variableDeclaration : TYPE ID '=' expression ;
@@ -17,6 +18,7 @@ expression
     : INT                               #intExpression
     | ID                                #idExpression
     | DOUBLE                            #doubleExpression
+    | BOOLEAN                           #booleanExpression
     | '(' expression ')'                #parenthesesExpression
     | expression intMultiOp expression  #intMultiOpExpression
     | expression intAddOp expression    #intAddOpExpression
@@ -30,17 +32,19 @@ intAddOp : '+' | '-' ;
 //doubleMultiOp : '' | '/' | '%' ;
 //doubleAddOp : '+' | '-' ;
 
+whileLoop : 'while' '(' expression ')' '{' statement* '}' ;
+
 ifStatement : 'if' '(' expression relationOp expression ')' '{' statement '}'
     ('else' '{' statement '}') ;
 
 
 
-relationOp : '==' | '!=' ;
+relationOp : '==' | '!=' | '>' | '<';
 
 printStatement : PRINT '(' expression ')' ;
 
 TYPE    : 'int'
-        | 'bool'
+        | 'boolean'
         | 'double'
         ;
 
@@ -48,6 +52,7 @@ PRINT   : 'print';
 ID      : [a-zA-Z]+ ;
 INT     : [0-9]+ ;
 DOUBLE  : [0-9]+ '.' [0-9]+ ([eE][+-]?[0-9]+)? ;
+BOOLEAN    : 'true' | 'false';
 
 COMMENT : ( '//' ~[\r\n]* | '/*' .*? '*/' ) -> skip ;
 WS      : [ \t\r\n]+ -> skip ;
