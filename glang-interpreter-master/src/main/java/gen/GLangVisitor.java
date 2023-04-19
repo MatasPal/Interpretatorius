@@ -48,6 +48,13 @@ public interface GLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIdExpression(GLangParser.IdExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code doubleExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDoubleExpression(GLangParser.DoubleExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code intExpression}
 	 * labeled alternative in {@link GLangParser#expression}.
 	 * @param ctx the parse tree

@@ -49,6 +49,10 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
     public Object visitIntExpression(GLangParser.IntExpressionContext ctx) {
         return Integer.parseInt(ctx.INT().getText());
     }
+    @Override
+    public Object visitDoubleExpression(GLangParser.DoubleExpressionContext ctx) {
+        return Double.parseDouble(ctx.DOUBLE().getText());
+    }
 
     @Override
     public Object visitIdExpression(GLangParser.IdExpressionContext ctx) {
