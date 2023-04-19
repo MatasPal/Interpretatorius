@@ -59,6 +59,13 @@ public class GLangBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements 
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitStringExpression(GLangParser.StringExpressionContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitDoubleExpression(GLangParser.DoubleExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
