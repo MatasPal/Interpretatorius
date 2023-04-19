@@ -11,7 +11,7 @@ statement
     | forLoop
     ;
 
-variableDeclaration : TYPE ID '=' expression ';';
+variableDeclaration : TYPE ID '=' expression;
 
 assignment
            : ID '=' expression

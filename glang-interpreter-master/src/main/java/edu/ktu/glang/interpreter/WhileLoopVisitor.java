@@ -28,7 +28,7 @@ public class WhileLoopVisitor extends GLangBaseVisitor<Object> {
 
     private static boolean resolveCondition(Object condition) {
         // The condition should evaluate to a boolean value
-        if (!(condition instanceof Boolean)) {
+        if (!(condition instanceof Integer)) {
             throw new RuntimeException("Condition must evaluate to a boolean value.");
         }
 
