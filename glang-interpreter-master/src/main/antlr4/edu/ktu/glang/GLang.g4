@@ -7,16 +7,23 @@ statement
     | assignment ';'
     | ifStatement
     | printStatement ';'
+    | whileLoop
+    | forLoop
     ;
 
-variableDeclaration : TYPE ID '=' expression ;
+variableDeclaration : TYPE ID '=' expression ';';
 
-assignment : ID '=' expression ;
+assignment
+           : ID '=' expression
+           ;
+           //| INT '++' expression;
+
 
 expression
     : INT                               #intExpression
     | ID                                #idExpression
     | DOUBLE                            #doubleExpression
+    | BOOLEAN                           #booleanExpression
     | '(' expression ')'                #parenthesesExpression
     | expression intMultiOp expression  #intMultiOpExpression
     | expression intAddOp expression    #intAddOpExpression
@@ -31,24 +38,31 @@ doubleMultiOp : '*' | '/' | '%' ;
 doubleAddOp : '+' | '-' ;
 
 
+whileLoop : 'while' '(' expression ')' '{' statement* '}' ;
+
 ifStatement : 'if' '(' expression relationOp expression ')' '{' statement '}'
     ('else' '{' statement '}') ;
+
+forLoop : 'for' '(' expression assignment ';' expression relationOp expression ';' assignment ')' '{' statement '}' ;
 
 
 
 relationOp : '==' | '!=' | '>' | '<' | '>=' | '<=';
 
+
 printStatement : PRINT '(' expression ')' ;
 
 TYPE    : 'int'
-        | 'bool'
+        | 'boolean'
         | 'double'
         ;
 
 PRINT   : 'print';
 ID      : [a-zA-Z]+ ;
 INT     : [0-9]+ ;
+BOOLEAN    : 'true' | 'false';
 DOUBLE  : [0-9]+'.'[0-9]+ ;
+
 
 COMMENT : ( '//' ~[\r\n]* | '/*' .*? '*/' ) -> skip ;
 WS      : [ \t\r\n]+ -> skip ;

@@ -1,4 +1,4 @@
-package gen;// Generated from C:/Users/Vartotojas/interpretatorius/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -90,6 +90,13 @@ public interface GLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIntMultiOpExpression(GLangParser.IntMultiOpExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code booleanExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBooleanExpression(GLangParser.BooleanExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link GLangParser#intMultiOp}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -102,23 +109,19 @@ public interface GLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIntAddOp(GLangParser.IntAddOpContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link GLangParser#doubleMultiOp}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDoubleMultiOp(GLangParser.DoubleMultiOpContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link GLangParser#doubleAddOp}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDoubleAddOp(GLangParser.DoubleAddOpContext ctx);
+
 	/**
 	 * Visit a parse tree produced by {@link GLangParser#ifStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitIfStatement(GLangParser.IfStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GLangParser#forLoop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForLoop(GLangParser.ForLoopContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link GLangParser#relationOp}.
 	 * @param ctx the parse tree
