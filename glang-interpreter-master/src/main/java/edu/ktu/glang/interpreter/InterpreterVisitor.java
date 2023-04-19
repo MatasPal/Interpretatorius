@@ -82,6 +82,51 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
             case "-" -> (Integer) val1 - (Integer) val2;
             default -> null;
         };
+    }*/
+
+    @Override
+    public Object visitIntAddOpExpression(GLangParser.IntAddOpExpressionContext ctx) {
+        Object val1 = visit(ctx.expression(0));
+        Object val2 = visit(ctx.expression(1));
+        String op = ctx.intAddOp().getText();
+
+        if (val1 instanceof Integer && val2 instanceof Integer) {
+            switch (op) {
+                case "+":
+                    return (Integer) val1 + (Integer) val2;
+                case "-":
+                    return (Integer) val1 - (Integer) val2;
+                default:
+                    break;
+            }
+        } else if (val1 instanceof Double && val2 instanceof Double) {
+            switch (op) {
+                case "+":
+                    return (Double) val1 + (Double) val2;
+                case "-":
+                    return (Double) val1 - (Double) val2;
+                default:
+                    break;
+            }
+        } else if (val1 instanceof String && val2 instanceof String) {
+            switch (op) {
+                case "+":
+                    return (String) val1 + (String) val2;
+                default:
+                    break;
+            }
+        } else if (val1 instanceof Boolean && val2 instanceof Boolean) {
+            switch (op) {
+                case "&&":
+                    return (Boolean) val1 && (Boolean) val2;
+                case "||":
+                    return (Boolean) val1 || (Boolean) val2;
+                default:
+                    break;
+            }
+        }
+
+        throw new RuntimeException("Unsupported operator or operand types.");
     }
 
     @Override
