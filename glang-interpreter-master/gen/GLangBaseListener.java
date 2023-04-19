@@ -88,6 +88,18 @@ public class GLangBaseListener implements GLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterDoubleExpression(GLangParser.DoubleExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDoubleExpression(GLangParser.DoubleExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterIntExpression(GLangParser.IntExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
