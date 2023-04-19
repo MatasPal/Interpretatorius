@@ -30,6 +30,7 @@ public Object visitIfStatement(GLangParser.IfStatementContext ctx) {
 }
 
     private static boolean resolveCondition(Object left, Object right, String relOp) {
+
         switch (relOp) {
             case "==":
                 return left.equals(right);
@@ -58,5 +59,6 @@ public Object visitIfStatement(GLangParser.IfStatementContext ctx) {
         } else {
             throw new RuntimeException("Comparison of unsupported types.");
         }
+
     }
 }

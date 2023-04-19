@@ -1,4 +1,6 @@
+
 package gen;// Generated from C:/Users/Vartotojas/interpretatorius/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -18,7 +20,9 @@ public class GLangLexer extends Lexer {
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
+
 		T__17=18, T__18=19, TYPE=20, PRINT=21, ID=22, INT=23, DOUBLE=24, COMMENT=25, 
+
 		WS=26;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
@@ -32,7 +36,9 @@ public class GLangLexer extends Lexer {
 		return new String[] {
 			"T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", "T__7", "T__8", 
 			"T__9", "T__10", "T__11", "T__12", "T__13", "T__14", "T__15", "T__16", 
+
 			"T__17", "T__18", "TYPE", "PRINT", "ID", "INT", "DOUBLE", "COMMENT", 
+
 			"WS"
 		};
 	}
@@ -41,9 +47,11 @@ public class GLangLexer extends Lexer {
 	private static String[] makeLiteralNames() {
 		return new String[] {
 
+
 			null, "';'", "'='", "'++'", "'('", "')'", "'*'", "'/'", "'%'", "'+'", 
 			"'-'", "'if'", "'{'", "'}'", "'else'", "'for'", "'=='", "'!='", "'<'", 
 			"'>'", null, "'print'"
+
 
 		};
 	}
@@ -51,8 +59,10 @@ public class GLangLexer extends Lexer {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
+
 			null, null, null, null, null, null, null, null, "TYPE", "PRINT", "ID", 
 			"INT", "DOUBLE", "COMMENT", "WS"
+
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -115,7 +125,9 @@ public class GLangLexer extends Lexer {
 
 	public static final String _serializedATN =
 
+
 		"\u0004\u0000\u001a\u00b8\u0006\uffff\uffff\u0002\u0000\u0007\u0000\u0002"+
+
 
 		"\u0001\u0007\u0001\u0002\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002"+
 		"\u0004\u0007\u0004\u0002\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002"+
