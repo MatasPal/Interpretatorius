@@ -17,11 +17,8 @@ public class WhileLoopVisitor extends GLangBaseVisitor<Object> {
         // Get the left and right expressions from the context
         Object left = parent.visit(ctx.expression(0));
         Object right = parent.visit(ctx.expression(1));
-
-        // Get the relation operator from the context
         TerminalNode relOpNode = (TerminalNode) ctx.relationOp().getChild(0);
         String relOp = relOpNode.getText();
-
         boolean condition = true;
         if(left != null && right != null) {
             condition = resolveCondition(left, right, relOp);

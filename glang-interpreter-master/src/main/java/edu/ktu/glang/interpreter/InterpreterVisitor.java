@@ -13,6 +13,8 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
     private final SymbolTable symbolTable;
     private final IfStatementVisitor ifStatementVisitor;
 
+    private final WhileLoopVisitor whileLoopVisitor;
+
 
     private final ForLoopVisitor forLoopVisitor;
 
@@ -23,7 +25,7 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
 
         this.queues = new LinkedHashMap<>();
         this.ifStatementVisitor = new IfStatementVisitor(this);
-
+        this.whileLoopVisitor = new WhileLoopVisitor(this);
         this.forLoopVisitor = new ForLoopVisitor(this);
 
     }
@@ -239,6 +241,11 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
     @Override
     public Object visitIfStatement(GLangParser.IfStatementContext ctx) {
         return this.ifStatementVisitor.visitIfStatement(ctx);
+    }
+
+    @Override
+    public Object visitWhileLoop(GLangParser.WhileLoopContext ctx) {
+        return this.whileLoopVisitor.visitWhileLoop(ctx);
     }
 
 
