@@ -90,11 +90,46 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
     public Object visitIntAddOpExpression(GLangParser.IntAddOpExpressionContext ctx) {
         Object val1 = visit(ctx.expression(0));
         Object val2 = visit(ctx.expression(1));
-        return switch (ctx.intAddOp().getText()) {
-            case "+" -> (Integer) val1 + (Integer) val2;
-            case "-" -> (Integer) val1 - (Integer) val2;
-            default -> null;
-        };
+        String op = ctx.intAddOp().getText();
+
+        if (val1 instanceof Integer && val2 instanceof Integer) {
+            switch (op) {
+                case "+":
+                    return (Integer) val1 + (Integer) val2;
+                case "-":
+                    return (Integer) val1 - (Integer) val2;
+                default:
+                    break;
+            }
+        } else if (val1 instanceof Double && val2 instanceof Double) {
+            switch (op) {
+                case "+":
+                    return (Double) val1 + (Double) val2;
+                case "-":
+                    return (Double) val1 - (Double) val2;
+                default:
+                    break;
+            }
+        } else if (val1 instanceof String && val2 instanceof String) {
+            switch (op) {
+                case "+":
+                    return (String) val1 + (String) val2;
+                default:
+                    break;
+            }
+        } else if (val1 instanceof Boolean && val2 instanceof Boolean) {
+            switch (op) {
+                case "&&":
+                    return (Boolean) val1 && (Boolean) val2;
+                case "":
+                    return (Boolean) val1 || (Boolean) val2;
+                default:
+                    break;
+            }
+
+        }
+
+        throw new RuntimeException("Unsupported operator or operand types.");
     }
 
     @Override
@@ -112,14 +147,42 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
     public Object visitIntMultiOpExpression(GLangParser.IntMultiOpExpressionContext ctx) {
         Object val1 = visit(ctx.expression(0));
         Object val2 = visit(ctx.expression(1));
-        //TODO - validation etc
-        return switch (ctx.intMultiOp().getText()) {
-            case "*" -> (Integer) val1 * (Integer) val2;
-            case "/" -> (Integer) val1 / (Integer) val2;
-            case "%" -> (Integer) val1 % (Integer) val2;
-            default -> null;
-        };
+
+        if (!(val1 instanceof Number) || !(val2 instanceof Number)) {
+            throw new IllegalArgumentException("Both values must be numbers");
+        }
+
+        Number num1 = (Number) val1;
+        Number num2 = (Number) val2;
+
+        switch (ctx.intMultiOp().getText()) {
+            case "*":
+                if (num1 instanceof Integer && num2 instanceof Integer) {
+                    return num1.intValue() * num2.intValue();
+                } else {
+                    return num1.doubleValue() * num2.doubleValue();
+                }
+            case "/":
+                if (num1 instanceof Integer && num2 instanceof Integer) {
+                    return num1.intValue() / num2.intValue();
+                } else {
+                    return num1.doubleValue() / num2.doubleValue();
+                }
+            case "%":
+                if (num1 instanceof Integer && num2 instanceof Integer) {
+                    return num1.intValue() % num2.intValue();
+                } else {
+                    throw new IllegalArgumentException("Modulo operation is only defined for integer types");
+                }
+            default:
+                throw new IllegalArgumentException("Invalid operator: " + ctx.intMultiOp().getText());
+        }
     }
+    @Override
+    public Object visitStringExpression(GLangParser.StringExpressionContext ctx) {
+        return ctx.STRING().getText().replaceAll("^.(.*).$", "$1");
+    }
+
 
     @Override
     public Object visitIfStatement(GLangParser.IfStatementContext ctx) {
