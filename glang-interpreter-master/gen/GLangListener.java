@@ -1,4 +1,4 @@
-// Generated from C:/Studijos/2 kursas/2 semestras/Programavimo kalbu teorija/Grupes projektas/glang-interpreter-master/2/glang-interpreter-master/glang-interpreter-master/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+// Generated from C:/Users/Erikas/Documents/GitHub/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -46,6 +46,36 @@ public interface GLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAssignment(GLangParser.AssignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GLangParser#queueDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterQueueDeclaration(GLangParser.QueueDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GLangParser#queueDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitQueueDeclaration(GLangParser.QueueDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GLangParser#enqueueStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnqueueStatement(GLangParser.EnqueueStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GLangParser#enqueueStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnqueueStatement(GLangParser.EnqueueStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GLangParser#dequeueStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterDequeueStatement(GLangParser.DequeueStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GLangParser#dequeueStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitDequeueStatement(GLangParser.DequeueStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code parenthesesExpression}
 	 * labeled alternative in {@link GLangParser#expression}.

@@ -2,15 +2,17 @@ package edu.ktu.glang.interpreter;
 
 import gen.*;
 
-import java.io.FileWriter;
-import java.io.IOException;
+
 
 public class InterpreterVisitor extends GLangBaseVisitor<Object> {
 
     private final StringBuilder SYSTEM_OUT = new StringBuilder();
 
+    private Map<String, Queue<Object>> queues;
     private final SymbolTable symbolTable;
     private final IfStatementVisitor ifStatementVisitor;
+
+    private final WhileLoopVisitor whileLoopVisitor;
 
 
     private final ForLoopVisitor forLoopVisitor;
@@ -22,7 +24,7 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
 
     public InterpreterVisitor(SymbolTable symbolTable) {
         this.symbolTable = symbolTable;
-        this.ifStatementVisitor = new IfStatementVisitor(this);
+
         this.forLoopVisitor = new ForLoopVisitor(this);
 
     }
@@ -30,6 +32,7 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
     @Override
     public Object visitProgram(GLangParser.ProgramContext ctx) {
         super.visitProgram(ctx);
+
         return SYSTEM_OUT.toString();
     }
 
@@ -84,6 +87,52 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
             throw new RuntimeException("Undeclared variable.");
         }
         return null;
+    }
+
+
+
+
+    @Override
+    public Object visitQueueDeclaration(GLangParser.QueueDeclarationContext ctx) {
+        String queueName = ctx.ID().getText();
+        if (!queues.containsKey(queueName)) {
+            queues.put(queueName, new LinkedList<>());
+            System.out.println(queues.get(queueName));
+        }
+        else if (queues == null) {
+        throw new RuntimeException("Queues is not initialised");}
+        else {
+            throw new RuntimeException("Queue already exists.");
+        }
+        return null;
+    }
+
+    @Override
+    public Object visitEnqueueStatement(GLangParser.EnqueueStatementContext ctx) {
+        String queueName = ctx.ID().getText();
+        System.out.println(queues.get(queueName));
+        Object value = visit(ctx.expression());
+        if (queues.containsKey(queueName)) {
+            queues.get(queueName).add(value);
+        } else {
+            throw new RuntimeException("Queue does not exist.");
+        }
+        return null;
+    }
+
+    @Override
+    public Object visitDequeueStatement(GLangParser.DequeueStatementContext ctx) {
+        String queueName = ctx.ID().getText();
+        if (queues.containsKey(queueName)) {
+            Queue<Object> queue = queues.get(queueName);
+            if (!queue.isEmpty()) {
+                return queue.remove();
+            } else {
+                throw new RuntimeException("Queue is empty.");
+            }
+        } else {
+            throw new RuntimeException("Queue does not exist.");
+        }
     }
 
     @Override
@@ -266,6 +315,11 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
     @Override
     public Object visitIfStatement(GLangParser.IfStatementContext ctx) {
         return this.ifStatementVisitor.visitIfStatement(ctx);
+    }
+
+    @Override
+    public Object visitWhileLoop(GLangParser.WhileLoopContext ctx) {
+        return this.whileLoopVisitor.visitWhileLoop(ctx);
     }
 
 
