@@ -2,7 +2,6 @@ package edu.ktu.glang.interpreter;
 
 import gen.*;
 
-import java.util.*;
 
 
 public class InterpreterVisitor extends GLangBaseVisitor<Object> {
@@ -18,14 +17,14 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
 
     private final ForLoopVisitor forLoopVisitor;
 
+    private FileWriter fileWriter;
+
+
 
 
     public InterpreterVisitor(SymbolTable symbolTable) {
         this.symbolTable = symbolTable;
 
-        this.queues = new LinkedHashMap<>();
-        this.ifStatementVisitor = new IfStatementVisitor(this);
-        this.whileLoopVisitor = new WhileLoopVisitor(this);
         this.forLoopVisitor = new ForLoopVisitor(this);
 
     }
@@ -37,10 +36,39 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
         return SYSTEM_OUT.toString();
     }
 
+    private boolean checkTypeCompatibility(String varType, Object value) {
+        switch (varType) {
+            case "int":
+                return value instanceof Integer;
+            case "boolean":
+                return value instanceof Boolean;
+            case "double":
+                return value instanceof Double;
+            case "string":
+                return value instanceof String;
+            case "operator":
+                return value instanceof String && isValidOperator((String) value);
+            default:
+                return false;
+        }
+    }
+
+    private boolean isValidOperator(String operator) {
+        return operator.equals("+") || operator.equals("-") ||
+        operator.equals("*") || operator.equals("/") ||
+        operator.equals("%");
+    }
     @Override
     public Object visitVariableDeclaration(GLangParser.VariableDeclarationContext ctx) {
+        String varType = ctx.TYPE().getText();
         String varName = ctx.ID().getText();
         Object value = visit(ctx.expression());
+
+        // Perform type checking
+        if (!checkTypeCompatibility(varType, value)) {
+            throw new RuntimeException("Type mismatch in variable declaration.");
+        }
+
         if (!this.symbolTable.contains(varName)) {
             this.symbolTable.put(varName, value);
         } else {
@@ -118,7 +146,21 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
 
     @Override
     public Object visitBooleanExpression(GLangParser.BooleanExpressionContext ctx) {
-        return Boolean.parseBoolean(ctx.BOOLEAN().getText());
+        String booleanValue = ctx.BOOLEAN().getText();
+        if (booleanValue.equals("true")) {
+            return true;
+        } else if (booleanValue.equals("false")) {
+            return false;
+        } else {
+            throw new IllegalArgumentException("Invalid boolean value: " + booleanValue);
+        }
+    }
+
+    @Override
+    public Object visitOperatorExpression(GLangParser.OperatorExpressionContext ctx) {
+        String operator = ctx.OPERATOR().getText();
+        operator = operator.substring(1, operator.length() - 1);
+        return operator;
     }
 
     @Override
@@ -128,12 +170,27 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
     }
 
     @Override
-    public Object visitPrintStatement(GLangParser.PrintStatementContext ctx) {
+   public Object visitPrintStatement(GLangParser.PrintStatementContext ctx) {
         String text = visit(ctx.expression()).toString();
         //System.out.println(text);
         SYSTEM_OUT.append(text).append("\n");
         return null;
     }
+
+    @Override
+    public Object visitPrintFStatement(GLangParser.PrintFStatementContext ctx) {
+        String filename = ctx.STRING().getText().replaceAll("\"", "");
+        String text = visit(ctx.expression()).toString();
+        try {
+            fileWriter = new FileWriter(filename, true);
+            fileWriter.append(text + "\n");
+            fileWriter.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     @Override
     public Object visitParenthesesExpression(GLangParser.ParenthesesExpressionContext ctx) {
@@ -144,14 +201,25 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
     public Object visitIntAddOpExpression(GLangParser.IntAddOpExpressionContext ctx) {
         Object val1 = visit(ctx.expression(0));
         Object val2 = visit(ctx.expression(1));
-        String op = ctx.intAddOp().getText();
-
+        String op;
+        if (ctx.intAddOp().ID() != null) {
+            String id = ctx.intAddOp().ID().getText();
+            op = this.symbolTable.get(id).toString();
+        } else {
+            op = ctx.intAddOp().getText();
+        }
         if (val1 instanceof Integer && val2 instanceof Integer) {
             switch (op) {
                 case "+":
                     return (Integer) val1 + (Integer) val2;
                 case "-":
                     return (Integer) val1 - (Integer) val2;
+                case "*":
+                    return (Integer) val1 * (Integer) val2;
+                case "/":
+                    return (Integer) val1 / (Integer) val2;
+                case "%":
+                    return (Integer) val1 % (Integer) val2;
                 default:
                     break;
             }
@@ -161,6 +229,12 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
                     return (Double) val1 + (Double) val2;
                 case "-":
                     return (Double) val1 - (Double) val2;
+                case "*":
+                    return (Double) val1 * (Double) val2;
+                case "/":
+                    return (Double) val1 / (Double) val2;
+                case "%":
+                    throw new IllegalArgumentException("Modulo operation is only defined for integer types");
                 default:
                     break;
             }
@@ -254,51 +328,5 @@ public class InterpreterVisitor extends GLangBaseVisitor<Object> {
         return this.forLoopVisitor.visitForLoop(ctx);
     }
 
-    /*@Override
-    public Object visitForStatement(GLangParser.ForStatementContext ctx) {
-        visit(ctx.assignment(0));
-        while ((boolean) visit(ctx.expression(0))) {
-            InterpreterVisitor visitor = new InterpreterVisitor(symbolTable);
-            for (GLangParser.StatementContext statement : ctx.statement().toArray(GLangParser.StatementContext[]::new)) {
-                visit(statement);
-            }
-
-            visit(ctx.assignment(1));
-        }
-        return null;
-    }
-
-    @Override
-    public Object visitForStatement(GLangParser.ForStatementContext ctx) {
-        visit(ctx.assignment(0));
-        while ((boolean) visit(ctx.expression(0))) {
-            InterpreterVisitor visitor = new InterpreterVisitor(symbolTable);
-            for (GLangParser.StatementContext statement : ctx.statement()) {
-                visit(statement);
-            }
-            visit(ctx.assignment(1));
-            if (ctx.expression().size() > 1) {
-                // update loop condition
-                boolean loopCondition = (boolean) visit(ctx.expression(1));
-                if (!loopCondition) {
-                    break;
-                }
-            }
-        }
-        return null;
-    }
-
-
-    private boolean evaluateBoolean(GLangParser.ExpressionContext ctx) {
-        Object value = visit(ctx);
-        if (value instanceof Boolean) {
-            return (Boolean) value;
-        } else {
-            throw new RuntimeException("Not a boolean expression.");
-        }
-    }
-
-
-     */
 
 }

@@ -80,6 +80,13 @@ public interface GLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDoubleExpression(GLangParser.DoubleExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code operatorExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOperatorExpression(GLangParser.OperatorExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code doubleMultiOpExpression}
 	 * labeled alternative in {@link GLangParser#expression}.
 	 * @param ctx the parse tree
@@ -169,6 +176,12 @@ public interface GLangVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitRelationOp(GLangParser.RelationOpContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GLangParser#printFStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintFStatement(GLangParser.PrintFStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link GLangParser#printStatement}.
 	 * @param ctx the parse tree

@@ -125,6 +125,18 @@ public interface GLangListener extends ParseTreeListener {
 	 */
 	void exitDoubleExpression(GLangParser.DoubleExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code operatorExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperatorExpression(GLangParser.OperatorExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code operatorExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperatorExpression(GLangParser.OperatorExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code doubleMultiOpExpression}
 	 * labeled alternative in {@link GLangParser#expression}.
 	 * @param ctx the parse tree
@@ -276,6 +288,16 @@ public interface GLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitRelationOp(GLangParser.RelationOpContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GLangParser#printFStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintFStatement(GLangParser.PrintFStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GLangParser#printFStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintFStatement(GLangParser.PrintFStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GLangParser#printStatement}.
 	 * @param ctx the parse tree
