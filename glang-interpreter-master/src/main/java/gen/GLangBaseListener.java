@@ -112,6 +112,18 @@ public class GLangBaseListener implements GLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterOperatorExpression(GLangParser.OperatorExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOperatorExpression(GLangParser.OperatorExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterDoubleMultiOpExpression(GLangParser.DoubleMultiOpExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -275,6 +287,18 @@ public class GLangBaseListener implements GLangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitRelationOp(GLangParser.RelationOpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPrintFStatement(GLangParser.PrintFStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPrintFStatement(GLangParser.PrintFStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
