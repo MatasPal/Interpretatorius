@@ -1,4 +1,4 @@
-package gen;// Generated from C:/Studijos/2 kursas/2 semestras/Programavimo kalbu teorija/Grupes projektas/glang-interpreter-master/2/glang-interpreter-master/glang-interpreter-master/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+package gen;// Generated from C:/Users/Erikas/Documents/GitHub/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -33,6 +33,24 @@ public interface GLangVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAssignment(GLangParser.AssignmentContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GLangParser#queueDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitQueueDeclaration(GLangParser.QueueDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GLangParser#enqueueStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEnqueueStatement(GLangParser.EnqueueStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GLangParser#dequeueStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDequeueStatement(GLangParser.DequeueStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code parenthesesExpression}
 	 * labeled alternative in {@link GLangParser#expression}.

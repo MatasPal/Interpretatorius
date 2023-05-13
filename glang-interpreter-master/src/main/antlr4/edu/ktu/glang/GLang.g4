@@ -9,6 +9,9 @@ statement
     | printStatement ';'
     | whileLoop
     | forLoop
+    | queueDeclaration ';'
+    | enqueueStatement ';'
+    | dequeueStatement ';'
     ;
 
 variableDeclaration : TYPE ID '=' expression;
@@ -18,6 +21,12 @@ assignment
            ;
            //| INT '++' expression;
 
+
+queueDeclaration : 'queue' ID '=' '[' ']' ;
+
+enqueueStatement : ID '.' 'enqueue' '(' expression ')' ;
+
+dequeueStatement : ID '.' 'dequeue' '(' ')' ;
 
 expression
     : INT                               #intExpression
