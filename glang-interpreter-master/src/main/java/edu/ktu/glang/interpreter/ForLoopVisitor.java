@@ -40,14 +40,7 @@ public class ForLoopVisitor extends GLangBaseVisitor<Object> {
         }
         return null;
     }
-/*
-    private static Boolean resolveCondition(Object conditionValue) {
-        if (conditionValue instanceof Boolean) {
-            return (Boolean) conditionValue;
-        } else {
-            throw new RuntimeException("Invalid condition type.");
-        }
-    }*/
+
     private static boolean resolveCondition(Object left, Object right, String relOp) {
 
         switch (relOp) {

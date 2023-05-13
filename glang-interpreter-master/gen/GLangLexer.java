@@ -1,4 +1,4 @@
-// Generated from C:/Studijos/2 kursas/2 semestras/Programavimo kalbu teorija/Grupes projektas/glang-interpreter-master/2/glang-interpreter-master/glang-interpreter-master/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+// Generated from C:/Users/Erikas/Documents/GitHub/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -18,9 +18,11 @@ public class GLangLexer extends Lexer {
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
+
 		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, TYPE=23, STRING=24, 
 		BOOLEAN=25, PRINT=26, PRINTF=27, ID=28, INT=29, DOUBLE=30, OPERATOR=31, 
 		COMMENT=32, WS=33;
+
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -33,26 +35,32 @@ public class GLangLexer extends Lexer {
 		return new String[] {
 			"T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", "T__7", "T__8", 
 			"T__9", "T__10", "T__11", "T__12", "T__13", "T__14", "T__15", "T__16", 
+
 			"T__17", "T__18", "T__19", "T__20", "T__21", "TYPE", "STRING", "BOOLEAN", 
 			"PRINT", "PRINTF", "ID", "INT", "DOUBLE", "OPERATOR", "COMMENT", "WS"
+
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
+
 			null, "';'", "'='", "'('", "')'", "'*'", "'/'", "'%'", "'+'", "'-'", 
 			"'while'", "'{'", "'}'", "'if'", "'else'", "'for'", "'=='", "'!='", "'>'", 
 			"'<'", "'>='", "'<='", "','", null, null, null, "'print'", "'printf'"
+
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
+
 			null, null, null, null, null, null, null, null, null, null, null, "TYPE", 
 			"STRING", "BOOLEAN", "PRINT", "PRINTF", "ID", "INT", "DOUBLE", "OPERATOR", 
 			"COMMENT", "WS"
+
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -114,7 +122,9 @@ public class GLangLexer extends Lexer {
 	public ATN getATN() { return _ATN; }
 
 	public static final String _serializedATN =
+
 		"\u0004\u0000!\u0100\u0006\uffff\uffff\u0002\u0000\u0007\u0000\u0002\u0001"+
+
 		"\u0007\u0001\u0002\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004"+
 		"\u0007\u0004\u0002\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007"+
 		"\u0007\u0007\u0002\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b"+
@@ -124,6 +134,7 @@ public class GLangLexer extends Lexer {
 		"\u0015\u0007\u0015\u0002\u0016\u0007\u0016\u0002\u0017\u0007\u0017\u0002"+
 		"\u0018\u0007\u0018\u0002\u0019\u0007\u0019\u0002\u001a\u0007\u001a\u0002"+
 		"\u001b\u0007\u001b\u0002\u001c\u0007\u001c\u0002\u001d\u0007\u001d\u0002"+
+
 		"\u001e\u0007\u001e\u0002\u001f\u0007\u001f\u0002 \u0007 \u0001\u0000\u0001"+
 		"\u0000\u0001\u0001\u0001\u0001\u0001\u0002\u0001\u0002\u0001\u0003\u0001"+
 		"\u0003\u0001\u0004\u0001\u0004\u0001\u0005\u0001\u0005\u0001\u0006\u0001"+
@@ -278,7 +289,7 @@ public class GLangLexer extends Lexer {
 		"\u0000\u00fc\u00fa\u0001\u0000\u0000\u0000\u00fc\u00fd\u0001\u0000\u0000"+
 		"\u0000\u00fd\u00fe\u0001\u0000\u0000\u0000\u00fe\u00ff\u0006 \u0000\u0000"+
 		"\u00ffB\u0001\u0000\u0000\u0000\u000e\u0000\u009b\u00a1\u00a3\u00b1\u00c3"+
-		"\u00c8\u00cd\u00d3\u00e4\u00ec\u00f1\u00f5\u00fc\u0001\u0006\u0000\u0000";
+
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
