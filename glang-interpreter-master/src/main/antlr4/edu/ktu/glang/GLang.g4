@@ -13,13 +13,14 @@ statement
     | queueDeclaration ';'
     | enqueueStatement ';'
     | dequeueStatement ';'
+    | functionDeclaration
+    | functionCall
+    | tryCatchStatement
     ;
 
 variableDeclaration : TYPE ID '=' expression;
 
-assignment
-           : ID '=' expression
-           ;
+assignment : ID '=' expression;
 
 queueDeclaration : 'queue' ID '=' '[' ']' ;
 
@@ -39,6 +40,7 @@ expression
     | expression intAddOp expression    #intAddOpExpression
     | expression doubleMultiOp expression  #doubleMultiOpExpression
     | expression doubleAddOp expression    #doubleAddOpExpression
+    | 'sum' '(' expression (',' expression)* ')'  #sumExpression
     ;
 
 intMultiOp : '*' | '/' | '%' ;
@@ -52,6 +54,10 @@ whileLoop : 'while' '(' expression relationOp expression ')' '{' statement* '}' 
 ifStatement : 'if' '(' expression relationOp expression ')' '{' statement '}'
     ('else' '{' statement '}') ;
 
+tryCatchStatement : 'try' '{' statement * '}' catchClause ;
+
+catchClause : 'catch' '{' statement * '}' ;
+
 forLoop : 'for' '(' variableDeclaration? ';' expression relationOp expression ';' assignment ')' '{' statement+ '}' ;
 
 relationOp : '==' | '!=' | '>' | '<' | '>=' | '<=';
@@ -60,7 +66,15 @@ printFStatement : PRINTF '('STRING','expression')' ;
 
 printStatement : PRINT '(' expression ')' ;
 
+functionDeclaration : 'function' ID '(' parameterList? ')' '{' statement* '}' ;
 
+parameterList : parameter (',' parameter)* ;
+
+parameter : TYPE ID ;
+
+
+functionCall : ID '(' argumentList? ')' ;
+argumentList : expression (',' expression)*;
 
 TYPE    : 'int'
         | 'boolean'
