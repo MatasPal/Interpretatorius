@@ -1,4 +1,4 @@
-// Generated from C:/Users/Erikas/Documents/GitHub/Interpretatorius/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
+// Generated from C:/Studijos/2 kursas/2 semestras/Programavimo kalbu teorija/Grupes projektas/glang-interpreter-master/2/glang-interpreter-master/glang-interpreter-master/glang-interpreter-master/src/main/antlr4/edu/ktu/glang\GLang.g4 by ANTLR 4.12.0
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -108,6 +108,13 @@ public interface GLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDoubleAddOpExpression(GLangParser.DoubleAddOpExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code sumExpression}
+	 * labeled alternative in {@link GLangParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSumExpression(GLangParser.SumExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code intAddOpExpression}
 	 * labeled alternative in {@link GLangParser#expression}.
 	 * @param ctx the parse tree
@@ -165,6 +172,18 @@ public interface GLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIfStatement(GLangParser.IfStatementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link GLangParser#tryCatchStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTryCatchStatement(GLangParser.TryCatchStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GLangParser#catchClause}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCatchClause(GLangParser.CatchClauseContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link GLangParser#forLoop}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -188,4 +207,34 @@ public interface GLangVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitPrintStatement(GLangParser.PrintStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GLangParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionDeclaration(GLangParser.FunctionDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GLangParser#parameterList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParameterList(GLangParser.ParameterListContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GLangParser#parameter}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParameter(GLangParser.ParameterContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GLangParser#functionCall}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionCall(GLangParser.FunctionCallContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GLangParser#argumentList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArgumentList(GLangParser.ArgumentListContext ctx);
 }
