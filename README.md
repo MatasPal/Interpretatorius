@@ -1,21 +1,21 @@
 # FL# (FRIENDS-LANGUAGE-SHARP)
 
-## Aprašymas
+## Description
 
-FL# (FRIENDS-LANGUAGE-SHARP) yra programavimo kalba, sukurta draugams. Ši kalba sukurta kaip grupinis projektas, siekiant suteikti galimybę mūsų grupei bendradarbiauti ir tobulinti programavimo įgūdžius. 
+FL# (FRIENDS-LANGUAGE-SHARP) is a programming language created for friends. This language was developed as a group project to enable our team to collaborate and enhance our programming skills.
 
-## Užduoties tikslas
+## Objective
 
-1. **Sukurti programavimo kalbą draugams.**
-   - **Unikali savybė:** Papildomas kintamųjų tipas `operator`.
-   - **Struktūra:** Funkcijos, eilė, kintamieji, išimčių valdymas.
-   - **Tipai:** Realizuoti keli tipai (pvz., int, string).
-   - **Skaitymas/rašymas į failą.**
+1. **Create a programming language for friends.**
+   - **Unique Feature:** An additional variable type called `operator`.
+   - **Structure:** Functions, queues, variables, exception handling.
+   - **Types:** Several types implemented (e.g., int, string).
+   - **File reading/writing.**
 
-## Esminės kalbos savybės
+## Key Language Features
 
-- **Unikali savybė:** Papildomas kintamųjų tipas `operator`, leidžiantis priskirti kintamajam operatorių.
-  - Pavyzdys:
+- **Unique Feature:** An additional variable type `operator`, allowing an operator to be assigned to a variable.
+  - Example:
     ```plaintext
     operator a = |*|;
     5 a 6 = 30
@@ -23,26 +23,26 @@ FL# (FRIENDS-LANGUAGE-SHARP) yra programavimo kalba, sukurta draugams. Ši kalba
     5 b 5 = 10
     ```
 
-- **Palaikomi duomenų tipai:**
+- **Supported Data Types:**
   - `string`
   - `int`
   - `boolean`
   - `double`
 
-- **Palaikomos struktūros:**
+- **Supported Structures:**
   - `queue`
 
-- **Kalbos savybės:**
-  - Išimčių valdymas
+- **Language Features:**
+  - Exception handling
 
-- **Palaikomos konstrukcijos:**
+- **Supported Constructs:**
   - `if()`
   - `for()`
   - `while()`
 
-- **Skaitymas iš failo, rašymas į failą.**
+- **File reading and writing.**
 
-## Kūrimo priemonės
+## Development Tools
 
-- **Java:** Ši kalba suteikia daug pavyzdinio kodo, nuo kurio patogu "atsispirti" ir kurti savo sprendimus.
-- **IntelliJ IDEA:** Naudojama aplinka, su kuria jau esame susipažinę, todėl darbas bus patogus ir paprastas.
+- **Java:** This language provides a lot of sample code, making it easy to "build upon" and create our own solutions.
+- **IntelliJ IDEA:** The environment we are familiar with, ensuring a convenient and straightforward development experience.
