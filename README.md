@@ -46,3 +46,7 @@ FL# (FRIENDS-LANGUAGE-SHARP) is a programming language created for friends. This
 
 - **Java:** This language provides a lot of sample code, making it easy to "build upon" and create our own solutions.
 - **IntelliJ IDEA:** The environment we are familiar with, ensuring a convenient and straightforward development experience.
+
+## Sources
+
+https://github.com/P175B124/glang-interpreter
